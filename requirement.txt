@@ -1,0 +1,14 @@
+# Chemistry
+rdkit>=2023.09.1            # needs rdDetermineBonds + CDXMLParserParams / MolsFromCDXMLFile
+
+# Image -> SMILES (buildingmolecule.py)
+decimer==2.7.0
+tensorflow==2.15.*          # last TF with Windows wheels; DECIMER dep
+pillow>=10.0
+
+# Data / IO (cdx_to_smiles_xyz_excel_folder_v5.py)
+pandas>=2.0
+openpyxl>=3.1               # pandas .to_excel engine
+numpy<2.0                   # TF 2.15 compatibility
+
+Here's a `requirements.txt` for pip-based installation. Note that **xtb** and **OpenBabel** are external binaries — they're not real pip packages, so document those separately in the README.
