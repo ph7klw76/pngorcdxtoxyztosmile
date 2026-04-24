@@ -12,7 +12,7 @@
   <img alt="Use case" src="https://img.shields.io/badge/Use%20Case-Paper%20%2F%20Publication-black.svg">
 </p>
 
-> **Companion repository for a paper / methods publication** on recovering molecular structures from images, ChemDraw files, and XYZ coordinates; generating 3D structures; visually inspecting coordinate-derived structures; and assigning conservative confidence-ranked canonical SMILES from geometry.
+> **Companion repository ** on recovering molecular structures from images, ChemDraw files, and XYZ coordinates; generating 3D structures; visually inspecting coordinate-derived structures; and assigning conservative confidence-ranked canonical SMILES from geometry.
 >
 > **One-line summary:** this repository contains **four standalone but complementary workflows**: **(1)** molecular image → SMILES/XYZ via DECIMER + RDKit, **(2)** ChemDraw CDX/CDXML → SMILES/XYZ/Excel via RDKit/Open Babel + RDKit, **(3)** XYZ → 2D structure PNG for rapid visual inspection, and **(4)** XYZ → confidence-ranked canonical isomeric SMILES using **multi-method RDKit consensus**, **xTB geometry refinement**, and **exact-pattern Wiberg bond-order verification**. These workflows can be run independently or chained manually in a publication pipeline.
 
@@ -81,7 +81,7 @@ flowchart LR
 
 ## Repository scope
 
-This repository brings together **four standalone scripts** that can be presented as one methodological framework in a paper. They are **not wired together as a single orchestrated executable pipeline**. Instead, outputs from one workflow can be passed manually into another when needed.
+This repository brings together **four standalone scripts** that can be presented as one methodological framework. They are **not wired together as a single orchestrated executable pipeline**. Instead, outputs from one workflow can be passed manually into another when needed.
 
 ### 1) `buildingmolecule.py`
 **Purpose:** convert molecular structure images (`.png`) into predicted SMILES, canonicalize them, draw recognized structures, and generate 3D XYZ coordinates.
@@ -193,12 +193,6 @@ A few boundaries are important:
 - the **visual QC** script (`xyz_to_structure_png.py`) is useful for inspection, but it is **not** equivalent to the stricter consensus + xTB validation workflow; and
 - the software setup section is a **suggested working environment**, not a frozen or universally verified lockfile.
 
-If this repository is used as a paper companion, it is a good idea to archive:
-- exact script versions,
-- the pinned software environment,
-- representative inputs,
-- and the specific outputs used in the manuscript or supplementary information.
-
 ---
 
 
@@ -231,10 +225,6 @@ molecule/
     └── *.xyz
 ```
 
-### Why this matters in a paper
-
-This part of the repository supports a workflow where the starting point is not structured chemical data, but **figure panels, scanned drawings, or manually created structure images**. The recognized 2D check images and `results.csv` file provide a useful traceability layer for supplementary materials.
-
 ---
 
 ## Workflow 2: ChemDraw CDX/CDXML → SMILES → XYZ → Excel
@@ -265,11 +255,7 @@ converted_output/
     └── *.xyz
 ```
 
-### Why this matters in a paper
-
-ChemDraw documents are common sources for curated chemical structures in laboratory and publication workflows. This pipeline turns document-native chemistry into machine-readable formats while preserving a clean tabular output for dataset assembly and reporting. Compared with the image and xTB workflows, its audit trail is lighter: the Excel output records filename–SMILES pairs, while parser choice and file-level failures are primarily reported to the console rather than embedded in the spreadsheet.
-
----
+----
 
 ## Workflow 3: XYZ → 2D structure PNG for visual inspection
 
@@ -294,13 +280,6 @@ structure_png_output/
 └── conversion_summary.csv
 ```
 
-### Why this matters in a paper
-
-This script is useful as a **visual inspection layer** for XYZ files produced by the other workflows. In particular, it can be used to check whether:
-
-- XYZ files generated from image-derived SMILES look chemically reasonable,
-- XYZ files produced from ChemDraw sources preserve the intended structure, and
-- optimized or intermediate XYZ files can be inspected quickly without opening specialized 3D viewers.
 
 ### Important interpretation note
 
@@ -395,7 +374,7 @@ flowchart TD
 
 ---
 
-## Suggested repository layout
+## Repository layout
 
 ```text
 .
@@ -404,8 +383,8 @@ flowchart TD
 ├── cdx_to_smiles_xyz_excel_folder_v5.py
 ├── xyz_to_structure_png.py
 ├── xtb_rdkit_high_confidence_smiles_v3.py
-├── environment.yml                     # recommended
-├── requirements.txt                    # optional
+├── environment.yml                     
+├── requirements.txt                    
 ├── data/
 │   ├── molecule_images/
 │   ├── chemdraw_files/
@@ -425,11 +404,7 @@ flowchart TD
 │       ├── summary.csv
 │       ├── optimized_xyz/
 │       └── logs/
-├── paper/
-│   ├── manuscript.pdf                  # optional
-│   ├── supplementary_information.pdf   # optional
-│   └── figures/                        # optional
-└── examples/                           # recommended
+                         
 ```
 
 ---
@@ -547,7 +522,7 @@ python xtb_rdkit_high_confidence_smiles_v3.py all \
 - optimized XYZ files
 - xTB logs
 
-These outputs make the repository suitable for a paper because the **raw inputs, intermediate representations, and final decisions can be archived and inspected**. The traceability is strongest in the image, XYZ-visual-QC, and xTB workflows; the ChemDraw workflow is lighter unless you separately capture console logs.
+These outputs make the repository suitable because the **raw inputs, intermediate representations, and final decisions can be archived and inspected**. The traceability is strongest in the image, XYZ-visual-QC, and xTB workflows; the ChemDraw workflow is lighter unless you separately capture console logs.
 
 ---
 
@@ -575,11 +550,6 @@ This repository is strongest as a **methods companion** when framed around the f
 - **Human-checkable intermediates**, including recognized structure PNGs, XYZ outputs, CSV summaries, Excel mappings, and XYZ-derived 2D inspection PNGs.
 - **Practical parser robustness**, using RDKit where possible and Open Babel where necessary.
 
-This framing works well for:
-- a cheminformatics methods paper,
-- a benchmark dataset repository,
-- a supplementary-code repo for a manuscript, or
-- a workflow repository accompanying a thesis chapter.
 
 ---
 
@@ -607,6 +577,4 @@ Please cite the upstream projects appropriately in any derivative publication.
 
 ---
 
-## Maintainer note
 
-This README is intentionally written in a **paper companion** style and has been worded to stay close to the present codebase. To finalize it for a live repository, replace the placeholder title, citation entries, URLs, and badges with the exact metadata for your manuscript and archive, and pin the exact runtime environment used to generate published results.
