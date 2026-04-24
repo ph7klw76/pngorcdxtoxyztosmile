@@ -1,0 +1,23 @@
+name: descriptor
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+
+  # Chemistry core
+  - rdkit=2024.03.*          # >=2023.09 required for CDXMLParserParams / MolsFromCDXMLFile
+  - openbabel=3.1.1          # obabel.exe fallback for binary .cdx
+  - xtb=6.7.1                # CLI used by xtb_rdkit_high_confidence_smiles_v3.py
+
+  # Data / IO
+  - pandas>=2.0
+  - openpyxl>=3.1            # pandas .to_excel engine
+  - numpy<2.0                # TF 2.15 / DECIMER compatibility
+
+  # DECIMER (image -> SMILES) via pip; pulls in TensorFlow + decimer-image-transformer
+  - pip:
+      - decimer==2.7.0
+      - tensorflow==2.15.*
+      - pillow>=10.0
