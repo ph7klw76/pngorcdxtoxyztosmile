@@ -407,14 +407,7 @@ flowchart TD
                          
 ```
 
-## NOTE
-These two are **not pip-installable** and must be on `PATH` (or pointed to via env var / CLI arg):
 
-- **xtb** ≥ 6.7.1 — used by `xtb_rdkit_high_confidence_smiles_v3.py`. Install via `conda install -c conda-forge xtb`, or download a release from https://github.com/grimme-lab/xtb.
-- **Open Babel** ≥ 3.1.1 (`obabel` CLI) — fallback parser for binary `.cdx` in `cdx_to_smiles_xyz_excel_folder_v5.py`. Install via `conda install -c conda-forge openbabel`, or the Windows installer. The script also accepts `--obabel <path>` or `OBABEL_EXE` env var.
-
-
-Recommend users on Windows use the `environment.yml` route — `rdkit` wheels from PyPI work, but `xtb`/`openbabel` are much easier via conda-forge.
 ---
 
 ## Suggested software environment
@@ -584,5 +577,12 @@ This workflow builds on:
 Please cite the upstream projects appropriately in any derivative publication.
 
 ---
+## NOTE
+These two are **not pip-installable** and must be on `PATH` (or pointed to via env var / CLI arg):
 
+- **xtb** ≥ 6.7.1 — used by `xtb_rdkit_high_confidence_smiles_v3.py`. Install via `conda install -c conda-forge xtb`, or download a release from https://github.com/grimme-lab/xtb.
+- **Open Babel** ≥ 3.1.1 (`obabel` CLI) — fallback parser for binary `.cdx` in `cdx_to_smiles_xyz_excel_folder_v5.py`. Install via `conda install -c conda-forge openbabel`, or the Windows installer. The script also accepts `--obabel <path>` or `OBABEL_EXE` env var.
+
+
+Recommend users on Windows use the `environment.yml` route — `rdkit` wheels from PyPI work, but `xtb`/`openbabel` are much easier via conda-forge.
 
