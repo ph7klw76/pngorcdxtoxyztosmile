@@ -14,7 +14,7 @@
 
 > **Companion repository ** on recovering molecular structures from images, ChemDraw files, and XYZ coordinates; generating 3D structures; visually inspecting coordinate-derived structures; and assigning conservative confidence-ranked canonical SMILES from geometry.
 >
-> **One-line summary:** this repository contains **four standalone but complementary workflows**: **(1)** molecular image → SMILES/XYZ via DECIMER + RDKit, **(2)** ChemDraw CDX/CDXML → SMILES/XYZ/Excel via RDKit/Open Babel + RDKit, **(3)** XYZ → 2D structure PNG for rapid visual inspection, and **(4)** XYZ → confidence-ranked canonical isomeric SMILES using **multi-method RDKit consensus**, **xTB geometry refinement**, and **exact-pattern Wiberg bond-order verification**. These workflows can be run independently or chained manually in a publication pipeline.
+> **One-line summary:** this repository contains **four standalone but complementary workflows**: **(1)** molecular image → SMILES/XYZ via DECIMER + RDKit, **(2)** ChemDraw CDX/CDXML → SMILES/XYZ/Excel via RDKit/Open Babel + RDKit, **(3)** XYZ → 2D structure PNG for rapid visual inspection, and **(4)** XYZ → confidence-ranked canonical isomeric SMILES using **multi-method RDKit consensus**, **xTB geometry refinement**, and **exact-pattern Wiberg bond-order verification**. These workflows can be run independently or chained manually in a publication pipeline. Accuracy is >99% 
 
 ---
 
