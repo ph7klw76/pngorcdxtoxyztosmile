@@ -1,5 +1,5 @@
 [README.md](https://github.com/user-attachments/files/27039520/README.md)
-# Publication Companion Repository: Cross-Format Molecular Structure Recovery, XYZ Generation, Visual QC, and Conservative Validation
+# Cross-Format Molecular Structure Recovery, XYZ Generation, Visual QC, and Conservative Validation
 
 <p align="center">
   <img alt="Python" src="https://img.shields.io/badge/Python-3.10%2B-blue.svg">
